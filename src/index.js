@@ -31,6 +31,8 @@ const createWindow = () => {
       mainWindow.webContents.send("cpu", v * 100);
       mainWindow.webContents.send("mem", os.freememPercentage() * 100);
       mainWindow.webContents.send("total-mem", os.totalmem() / 1024);
+      mainWindow.webContents.send("process-up-time", os.processUptime() / 60);
+      mainWindow.webContents.send("platform", os.platform());
     });
   }, 1000);
 };

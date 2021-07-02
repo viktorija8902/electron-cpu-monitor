@@ -19,12 +19,28 @@
       ipcRenderer.on("total-mem", (event, data) => {
         document.getElementById("total-mem").innerHTML = data.toFixed();
       });
+
+      ipcRenderer.on("process-up-time", (event, data) => {
+        document.getElementById("process-up-time").innerHTML = data.toFixed(2);
+      });
+
+      ipcRenderer.on("platform", (event, data) => {
+        document.getElementById("platform").innerHTML = data;
+      });
     </script>
   </body>
   </head>
   <body>
     <h1>💖 Hello World!</h1>
     <p>Welcome to your Electron application.</p>
+    <div class="box">
+      <span class="label">Platform</span>
+      <span id="platform">-</span>
+    </div>
+    <div class="box">
+      <span class="label">Process up time (min)</span>
+      <span id="process-up-time">-</span>
+    </div>
    <div class="box">
      <span class="label">CPU (%)</span>
      <span id="cpu">-</span>
